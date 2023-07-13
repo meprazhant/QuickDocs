@@ -10,6 +10,12 @@ error_reporting(E_ALL);
 
 $hey = $_POST['submit'];
 if ($hey) {
+    if ($_GET['id']) {
+        $id = $_GET['id'];
+    } else {
+        $id = 0;
+    }
+
     $desc = $_POST['desc'];
     $name = $_POST['title'];
     $email = $_COOKIE['email'];
@@ -22,9 +28,9 @@ if ($hey) {
         $fileExt = explode('.', $fileName);
         $imgext = strtolower(end($fileExt));
         $newimgname = uniqid('', true) . "." . $imgext;
-        move_uploaded_file($fileTmp, "/opt/lampp/htdocs/quickdocs/docs/" . $newimgname);
+        move_uploaded_file($fileTmp, "../docs/" . $newimgname);
         $go = $newimgname;
-        $sql = "INSERT INTO `docs`( `user`, `description`, `time`,`image`,`name`) VALUES ('$email','$desc',current_timestamp(),'$newimgname', '$name')";
+        $sql = "INSERT INTO `docs`( `user`, `description`, `time`,`image`,`name`,`folder`) VALUES ('$email','$desc',current_timestamp(),'$newimgname', '$name','$id')";
         $result = mysqli_query($conn, $sql);
         header("Location: /quickdocs/");
 

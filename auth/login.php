@@ -11,8 +11,10 @@ if (isset($_POST['submit'])) {
         $name = $row['name'];
         $email = $row['email'];
         $password = $row['password'];
+        $pp = $row['pp'];
         setcookie("name", $name, time() + (86400 * 30), "/");
         setcookie("email", $email, time() + (86400 * 30), "/");
+        setcookie("image", $pp, time() + (86400 * 30), "/");
         header("Location: ../");
     } else {
         require_once("./Wronginput.php");

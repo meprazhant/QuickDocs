@@ -291,7 +291,6 @@ body {
   border-radius: 10px;
   gap: 10px;
   align-items: start;
-  flex-direction: row;
   justify-content: start;
   flex-wrap: wrap;
 }
@@ -322,7 +321,7 @@ body {
 .h-form {
   width: 50%;
   overflow-y: scroll;
-  max-height: 80vh;
+  max-height: 80vh !important;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -370,6 +369,7 @@ body {
 
 .h-item img {
   width: 300px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -387,6 +387,133 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 320px;
+  height: auto;
+  flex: 2;
+}
+
+.imageViewer {
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2121213b;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+}
+
+.imageViewer img {
+  max-height: calc(100vh - 100px);
+}
+
+.imageViewer nav {
+  top: 20px;
+  left: 20px;
+}
+
+.h-create {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  transition: all .5s ease-in-out;
+}
+
+.create-opt {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all .5s ease-in-out;
+}
+
+.create-opt:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.h-create img {
+  width: 50px;
+  object-fit: cover;
+}
+
+.folderView {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0000002a;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.h-folder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 50px;
+  transition: all .5s ease-in-out;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  user-select: none;
+}
+
+.h-folder:focus,
+.h-folder:active {
+  outline: 0;
+  background-color: #cfcfcf;
+}
+
+.h-folder:hover {
+  background-color: #cfcfcf;
+}
+
+.h-folders {
+  display: flex;
+  gap: 10px;
+}
+
+.h-folder img {
+  width: 50px;
+  object-fit: cover;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.h-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.folder-file {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.f-create {
+  background-color: #ffae00;
+}
+
+.f-render {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -401,6 +528,14 @@ body {
   backdrop-filter: blur(5px);
   min-width: 400px;
 
+}
+
+.unauth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 
 .logcard h1 {
